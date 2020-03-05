@@ -1,0 +1,22 @@
+{
+  "name": "highcharts-wrapper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch": "webpack-dev-server"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@turtlemay/jsx-dom": "^1.0.0",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.5",
+    "webpack": "^4.42.0",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "devDependencies": {
+    "diff-dom": "^4.1.6",
+    "webpack-cli": "^3.3.11"
+  }
+}

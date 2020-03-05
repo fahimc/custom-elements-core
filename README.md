@@ -1,1 +1,1 @@
-# custom-elements-decorator
+# highcharts-element
