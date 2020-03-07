@@ -1,2 +1,3 @@
-export * './base/custom-element-core';
-export * './decorator/custom-element-decorator';
+export * from './base/custom-element-core';
+export * from './decorator/custom-element-decorator';
+export * from './helper/custom-element-util';
