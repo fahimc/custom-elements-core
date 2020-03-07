@@ -1,7 +1,7 @@
 /** @jsx Snabbdom.createElement */
 import Snabbdom from 'snabbdom-pragma'
 // import {createElement} from '@turtlemay/jsx-dom';
-import {CustomElement,CustomElementCore, Prop} from '../../src/index';
+import {CustomElement,CustomElementCore, Prop, CustomElementComponent} from '../../src/index';
 export interface MyComponentState {
     name:string;
 }
@@ -15,7 +15,7 @@ export interface MyComponentProps {
         selector: 'my-component'
     }
 )
-export class MyComponent extends CustomElementCore<MyComponentProps, MyComponentState> {
+export class MyComponent extends CustomElementCore<MyComponentProps, MyComponentState> implements CustomElementComponent {
     @Prop()
     public name: string = '';
     @Prop()
@@ -26,8 +26,18 @@ export class MyComponent extends CustomElementCore<MyComponentProps, MyComponent
             name: 'Tom',
         }
        
+        this.setState({
+            name: 'John'
+        });
+    }
+    public setStyle(){
+        return `
+            * {
+                background-color: red;
+            }
+        `;
     }
     public render(){
-    return <div >Hello World <span>{this.props.name}</span></div>
+    return <div style={{fontSize:  '22px'}} >Hello World <span>{this.props.name}</span></div>
     }
 }

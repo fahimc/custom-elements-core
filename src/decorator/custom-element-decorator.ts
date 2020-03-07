@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 export interface CustomElementConfig {
     selector: string;
 }
@@ -6,8 +7,7 @@ export const CustomElement = (config: CustomElementConfig) => (constructor: any)
         get: () => {
             return constructor.PropList;
         }
-    })
-    console.log(constructor.observedAttributes);
+    });
     customElements.define(config.selector, constructor);
 }
 
@@ -15,7 +15,8 @@ export const Prop = () => {
     return (target:any, propertyName: string) => {
         if(!target.props) target.props = {};
         if(!target.constructor.PropList) target.constructor.PropList = [];
-        console.log(propertyName);
+        var t = Reflect.getMetadata("design:type", target, propertyName);
+        console.log(t);
         target.constructor.PropList.push(propertyName);
         Object.defineProperty(target, propertyName, {
             set(value){

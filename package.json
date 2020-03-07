@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "watch": "webpack-dev-server"
+    "watch": "webpack-dev-server",
+    "build": "webpack",
+    "tsc": "tsc --project tsconfig.json --declaration"
   },
   "author": "",
   "license": "ISC",
@@ -20,6 +22,7 @@
   },
   "devDependencies": {
     "diff-dom": "^4.1.6",
+    "reflect-metadata": "^0.1.13",
     "webpack-cli": "3.3.11"
   }
 }
