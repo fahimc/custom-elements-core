@@ -1,27 +1,24 @@
 {
-  "name": "highcharts-wrapper",
-  "version": "1.0.0",
+  "name": "custom-elements-core",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "watch": "webpack-dev-server",
-    "build": "webpack",
+    "watch": "webpack-dev-server  --env.development",
+    "build": "webpack  --env.production",
     "tsc": "tsc --project tsconfig.json --declaration"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@turtlemay/jsx-dom": "^1.0.0",
     "snabbdom": "^0.7.4",
-    "snabbdom-pragma": "^2.8.0",
-    "ts-loader": "6.2.1",
-    "typescript": "3.7.5",
-    "virtual-dom": "^2.1.1",
-    "webpack": "4.42.0",
-    "webpack-dev-server": "3.10.3"
+    "snabbdom-pragma": "^2.8.0"
   },
   "devDependencies": {
-    "diff-dom": "^4.1.6",
+    "ts-loader": "6.2.1",
+    "typescript": "3.7.5",
+    "webpack": "4.42.0",
+    "webpack-dev-server": "3.10.3",
     "reflect-metadata": "^0.1.13",
     "webpack-cli": "3.3.11"
   }

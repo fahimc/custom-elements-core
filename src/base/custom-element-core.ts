@@ -1,4 +1,6 @@
 import {hasObjectChanged} from "../helper/custom-element-util";
+/** @jsx Snabbdom.createElement */
+import Snabbdom from 'snabbdom-pragma'
 import {init} from 'snabbdom';
 import {toVNode} from 'snabbdom/tovnode';
 const patch = init([ // Init patch function with chosen modules
