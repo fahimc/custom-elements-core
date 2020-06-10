@@ -1,4 +1,4 @@
-<img alt="CustomElementsCore" src="design/logo.png" width="356px">  
+<img alt="CustomElementsCore" src="design/logo.png">  
 
 This is a Typescript base class for custom elements. It provides very tiny amount of extra code but in that it gives you a lot of features. 
 
