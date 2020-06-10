@@ -1,7 +1,5 @@
-<img alt="CustomElementsCore" src="design/logo.png">
+<img alt="CustomElementsCore" src="design/logo.png" width="356px">  
 
-.png" width="356px">
-# Custom Elements Core
 This is a Typescript base class for custom elements. It provides very tiny amount of extra code but in that it gives you a lot of features. 
 
 This base class comes with a decorator, virtual dom, jsx, state management and react like props.
