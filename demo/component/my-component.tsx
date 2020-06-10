@@ -1,6 +1,5 @@
 /** @jsx Snabbdom.createElement */
 import Snabbdom from 'snabbdom-pragma'
-// import {createElement} from '@turtlemay/jsx-dom';
 import {CustomElement,CustomElementCore, Prop, CustomElementComponent} from '../../src/index';
 export interface MyComponentState {
     name:string;
