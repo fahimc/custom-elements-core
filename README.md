@@ -45,7 +45,7 @@ Under the hood this creates a setter and a getter for the variable and executes 
 
 # Base Class `CustomElementCore`
 
-This class provides state management, attribute binding to props, JSX, virtual dom rendering, style changes handler and handling of state changes. It's very lightweight and intented to do as little as possible to provide core functionality but not add to much to the custom element lifecyce.
+This class provides state management, attribute binding to props, JSX, virtual dom rendering, style changes handler and handling of state changes. It's very lightweight and intended to do as little as possible to provide core functionality but not add too much to the custom element lifecycle.
 
 ## Example
 
