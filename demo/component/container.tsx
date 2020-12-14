@@ -1,5 +1,6 @@
 /** @jsx Snabbdom.createElement */
 import Snabbdom from "snabbdom-pragma";
+
 import { CustomElementCore, CustomElement } from "../../src";
 
 interface ContainerState {
@@ -35,6 +36,7 @@ export class Container extends CustomElementCore<{}, ContainerState> {
           info={{
             name: "Adam",
           }}
+          buttontype="test"
         ></my-component>
       </div>
     );

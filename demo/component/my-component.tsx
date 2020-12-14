@@ -1,4 +1,3 @@
-/** @jsxRuntime classic */
 /** @jsx Snabbdom.createElement */
 import Snabbdom from "snabbdom-pragma";
 import {
@@ -15,6 +14,7 @@ export interface MyComponentState {
 export interface MyComponentProps {
   name: string;
   data: any;
+  buttontype?:string;
 }
 
 @CustomElement({
@@ -25,6 +25,8 @@ export class MyComponent
   implements CustomElementComponent {
   @Prop()
   public name: string = "";
+  @Prop()
+  public buttontype: string = "";
   @Prop()
   public info: any = {};
 
@@ -48,9 +50,11 @@ export class MyComponent
   }
 
   public render() {
+    console.log(this.props);
     return (
-      <div style={{ fontSize: "22px" }}>
-        Hello World <span>{this.props.name}</span>
+      <div className={'test'}>
+        <p>Hello World </p>
+        <span>hello</span>
       </div>
     );
   }

@@ -1,23 +1,26 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-/** @jsxRuntime classic */
-/** @jsx Snabbdom.createElement */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import Snabbdom from "snabbdom-pragma";
-import { init } from "snabbdom";
-import { toVNode } from "snabbdom/tovnode";
+
 import { hasObjectChanged } from "../helper/custom-element-util";
-import { VNode } from "snabbdom/vnode";
-const patch = init([
-    // Init patch function with chosen modules
-    require("snabbdom/modules/class").default, // makes it easy to toggle classes
-    require("snabbdom/modules/props").default, // for setting properties on DOM elements
-    require("snabbdom/modules/style").default, // handles styling on elements with support for animations
-    require("snabbdom/modules/eventlisteners").default, // attaches event listeners
-]);
+
+import { init } from 'snabbdom/build/package/init'
+import { classModule } from 'snabbdom/build/package/modules/class'
+import { propsModule } from 'snabbdom/build/package/modules/props'
+import { styleModule } from 'snabbdom/build/package/modules/style'
+import { eventListenersModule } from 'snabbdom/build/package/modules/eventlisteners'
+import { toVNode } from 'snabbdom/build/package/tovnode'
+import { VNode } from "snabbdom/build/package/vnode";
+
+const patch = init([ // Init patch function with chosen modules
+    classModule, // makes it easy to toggle classes
+    propsModule, // for setting properties on DOM elements
+    styleModule, // handles styling on elements with support for animations
+    eventListenersModule, // attaches event listeners
+])
 
 export interface CustomElementComponent {
     setStyle: () => string;
-    render: () => JSX.Element;
+    render: () => any;
 }
 /**
  * Base class for custom elements.
@@ -60,10 +63,14 @@ export class CustomElementCore<P = Record<string, unknown>, S = Record<string, u
     }
 
     public attributeChangedCallback(name: string, oldValue: string, newValue: string) : void {
+        // convert kebab case to camel case
+        const propName = name.replace(/-./g, x=>x.toUpperCase()[1])
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        if (newValue !== oldValue && (this as any)[name] !== undefined)
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            (this as any).props[name] = newValue;
+        if (newValue !== oldValue && (this as any)[propName] !== undefined)
+           {
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                (this as any)[propName] = newValue;
+           }
     }
     public connectedCallback() : void {
         this.updateStyle();
@@ -92,7 +99,7 @@ export class CustomElementCore<P = Record<string, unknown>, S = Record<string, u
         }
     }
     private updateVDom() {
-        patch(
+        const vNode = patch(
             toVNode(this.element as Node),
             ((this as unknown) as CustomElementComponent).render() as VNode
         );

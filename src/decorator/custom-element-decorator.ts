@@ -23,8 +23,10 @@ export const Prop = () => {
         if(!target.props) target.props = {};
         // PropList should be created if is doesn't exist
         if(!target.constructor.PropList) target.constructor.PropList = [];
+        // Convert camelcase to kebab case for attributes
+        const propName = propertyName.replace(/[A-Z]/g, letter => `-${letter.toLowerCase()}`);
         // Add the propertyName to the PropList so it can be observed 
-        target.constructor.PropList.push(propertyName);
+        target.constructor.PropList.push(propName);
         // Proxy the property setter to call update when prop is set
         Object.defineProperty(target, propertyName, {
             set(value){
